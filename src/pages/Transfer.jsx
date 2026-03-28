@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import BottomNav from "../components/BottomNav.jsx";
+import MobileHeader from "../components/MobileHeader.jsx";
+
 export default function Transfer() {
   return (
     <div style={styles.page}>
       <main style={styles.main}>
-        <h1 style={styles.title}>Transfer Money</h1>
+        <MobileHeader title="Transfer" />
 
         <div style={styles.card}>
           <input type="text" placeholder="From Account" style={styles.input} />
@@ -22,17 +24,27 @@ export default function Transfer() {
           </motion.button>
         </div>
       </main>
+
       <BottomNav />
     </div>
   );
 }
 
 const styles = {
-  page: { minHeight: "100vh", display: "flex", background: "#f5f8f6" },
-  main: { flex: 1, padding: "30px", paddingBottom: "120px" },
-  title: { marginTop: 0, color: "#173321" },
+  page: {
+    minHeight: "100vh",
+    background: "#f5f8f6",
+  },
+
+  main: {
+    padding: "24px 20px 120px",
+    maxWidth: "900px",
+    margin: "0 auto",
+  },
+
   card: {
     maxWidth: "520px",
+    margin: "0 auto",
     background: "white",
     borderRadius: "24px",
     padding: "24px",
@@ -41,6 +53,7 @@ const styles = {
     flexDirection: "column",
     gap: "16px",
   },
+
   input: {
     height: "54px",
     borderRadius: "14px",
@@ -49,6 +62,7 @@ const styles = {
     fontSize: "16px",
     outline: "none",
   },
+
   button: {
     height: "54px",
     borderRadius: "14px",

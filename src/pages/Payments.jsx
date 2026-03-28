@@ -1,13 +1,14 @@
 import { motion } from "framer-motion";
 import BottomNav from "../components/BottomNav.jsx";
+import MobileHeader from "../components/MobileHeader.jsx";
+
 export default function Payments() {
   const items = ["Electricity Bill", "Gas Bill", "Internet Bill", "Mobile Recharge"];
 
   return (
     <div style={styles.page}>
-      
       <main style={styles.main}>
-        <h1 style={styles.title}>Payments</h1>
+        <MobileHeader title="Payments" />
 
         <div style={styles.grid}>
           {items.map((item) => (
@@ -23,20 +24,30 @@ export default function Payments() {
           ))}
         </div>
       </main>
+
       <BottomNav />
     </div>
   );
 }
 
 const styles = {
-  page: { minHeight: "100vh", display: "flex", background: "#f5f8f6" },
-  main: { flex: 1, padding: "30px", paddingBottom: "120px" },
-  title: { marginTop: 0, color: "#173321" },
+  page: {
+    minHeight: "100vh",
+    background: "#f5f8f6",
+  },
+
+  main: {
+    padding: "24px 20px 120px",
+    maxWidth: "900px",
+    margin: "0 auto",
+  },
+
   grid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
     gap: "18px",
   },
+
   card: {
     background: "white",
     border: "none",

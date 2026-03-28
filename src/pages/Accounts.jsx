@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import BottomNav from "../components/BottomNav.jsx";
+import MobileHeader from "../components/MobileHeader.jsx";
+
 export default function Accounts() {
   const accounts = [
     { type: "Savings Account", number: "****4582", balance: "৳ 85,620.25" },
@@ -9,9 +11,8 @@ export default function Accounts() {
 
   return (
     <div style={styles.page}>
-      
       <main style={styles.main}>
-        <h1 style={styles.title}>Accounts</h1>
+        <MobileHeader title="Accounts" />
 
         <div style={styles.grid}>
           {accounts.map((acc) => (
@@ -28,26 +29,37 @@ export default function Accounts() {
           ))}
         </div>
       </main>
+
       <BottomNav />
     </div>
   );
 }
 
 const styles = {
-  page: { minHeight: "100vh", display: "flex", background: "#f5f8f6" },
-  main: { flex: 1, padding: "30px", paddingBottom: "120px" },
-  title: { marginTop: 0, color: "#173321" },
+  page: {
+    minHeight: "100vh",
+    background: "#f5f8f6",
+  },
+
+  main: {
+    padding: "24px 20px 120px",
+    maxWidth: "900px",
+    margin: "0 auto",
+  },
+
   grid: {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
     gap: "18px",
   },
+
   card: {
     background: "white",
     borderRadius: "20px",
     padding: "22px",
     boxShadow: "0 10px 25px rgba(0,0,0,0.06)",
   },
+
   label: { margin: 0, color: "#666" },
   balance: { margin: "10px 0", color: "#173321" },
   number: { margin: 0, color: "#888" },
