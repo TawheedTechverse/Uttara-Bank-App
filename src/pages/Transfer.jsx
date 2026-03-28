@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Sidebar from "../components/Sidebar.jsx";
-
+import BottomNav from "../components/BottomNav.jsx";
 export default function Transfer() {
   return (
     <div style={styles.page}>
@@ -24,13 +24,14 @@ export default function Transfer() {
           </motion.button>
         </div>
       </main>
+      <BottomNav />
     </div>
   );
 }
 
 const styles = {
   page: { minHeight: "100vh", display: "flex", background: "#f5f8f6" },
-  main: { flex: 1, padding: "30px" },
+  main: { flex: 1, padding: "30px", paddingBottom: "120px" },
   title: { marginTop: 0, color: "#173321" },
   card: {
     maxWidth: "520px",

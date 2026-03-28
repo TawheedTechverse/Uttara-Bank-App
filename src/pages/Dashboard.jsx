@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import BottomNav from "../components/BottomNav.jsx";
+
 import {
   Send,
   Receipt,
@@ -175,6 +177,7 @@ export default function Dashboard() {
           </div>
         </section>
       </main>
+      <BottomNav />
     </div>
   );
 }
@@ -191,6 +194,7 @@ const styles = {
     flex: 1,
     padding: "30px",
     minWidth: 0,
+    paddingBottom: "120px",
   },
 
   topbar: {
