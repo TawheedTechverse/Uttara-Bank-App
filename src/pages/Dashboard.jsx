@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import BottomNav from "../components/BottomNav.jsx";
-
+import MobileHeader from "../components/MobileHeader.jsx";
 import {
   Send,
   Receipt,
@@ -12,7 +12,6 @@ import {
   EyeOff,
   BadgeDollarSign,
 } from "lucide-react";
-import Sidebar from "../components/Sidebar.jsx";
 
 const ShaplaIcon = () => (
   <svg
@@ -57,9 +56,10 @@ export default function Dashboard() {
 
   return (
     <div style={styles.page}>
-      <Sidebar />
+      
 
       <main style={styles.main}>
+        <MobileHeader title= "Dashboard" />
         <div style={styles.topbar}>
           <motion.div
             initial={{ opacity: 0, x: -20 }}
