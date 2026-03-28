@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
-import Sidebar from "../components/Sidebar.jsx";
 import BottomNav from "../components/BottomNav.jsx";
 export default function Cards() {
   return (
     <div style={styles.page}>
-      <Sidebar />
+      
       <main style={styles.main}>
         <h1 style={styles.title}>Cards</h1>
 

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import Sidebar from "../components/Sidebar.jsx";
 import BottomNav from "../components/BottomNav.jsx";
 export default function Accounts() {
   const accounts = [
@@ -10,7 +9,7 @@ export default function Accounts() {
 
   return (
     <div style={styles.page}>
-      <Sidebar />
+      
       <main style={styles.main}>
         <h1 style={styles.title}>Accounts</h1>
 

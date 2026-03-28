@@ -1,12 +1,11 @@
 import { motion } from "framer-motion";
-import Sidebar from "../components/Sidebar.jsx";
 import BottomNav from "../components/BottomNav.jsx";
 export default function Payments() {
   const items = ["Electricity Bill", "Gas Bill", "Internet Bill", "Mobile Recharge"];
 
   return (
     <div style={styles.page}>
-      <Sidebar />
+      
       <main style={styles.main}>
         <h1 style={styles.title}>Payments</h1>
 
