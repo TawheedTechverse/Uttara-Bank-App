@@ -7,12 +7,13 @@ import Cards from "./pages/Cards.jsx";
 import Payments from "./pages/Payments.jsx";
 import Profile from "./pages/Profile.jsx";
 import Splash from "./pages/Splash.jsx";
+import Features from "./pages/Features.jsx";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-          <Route path="/" element={<Splash />} />
+        <Route path="/" element={<Splash />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/" element={<Login />} />
@@ -22,6 +23,8 @@ export default function App() {
         <Route path="/cards" element={<Cards />} />
         <Route path="/payments" element={<Payments />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/features" element={<Features />} />
+
       </Routes>
     </BrowserRouter>
   );

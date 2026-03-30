@@ -11,6 +11,7 @@ import {
   Eye,
   EyeOff,
   BadgeDollarSign,
+  Sparkles,
 } from "lucide-react";
 
 const ShaplaIcon = () => (
@@ -40,12 +41,13 @@ export default function Dashboard() {
   ];
 
   const actions = [
-    { label: "Transfer Money", path: "/transfer", icon: Send },
-    { label: "Bill Payment", path: "/payments", icon: Receipt },
-    { label: "Mobile Recharge", path: "/payments", icon: Smartphone },
-    { label: "Cards", path: "/cards", icon: CreditCard },
-    { label: "PayID", path: "/transfer", icon: BadgeDollarSign },
-  ];
+  { label: "Transfer Money", path: "/transfer", icon: Send },
+  { label: "Bill Payment", path: "/payments", icon: Receipt },
+  { label: "Mobile Recharge", path: "/payments", icon: Smartphone },
+  { label: "Cards", path: "/cards", icon: CreditCard },
+  { label: "PayID", path: "/transfer", icon: BadgeDollarSign },
+  { label: "Add-on Features", path: "/features", icon: Sparkles },
+];
 
   const transactions = [
     { title: "Salary Credit", time: "Today • 9:00 AM", amount: "+ ৳ 42,000" },

@@ -6,10 +6,12 @@ export default function Splash() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       navigate("/login");
     }, 2500);
-  }, []);
+
+    return () => clearTimeout(timer);
+  }, [navigate]);
 
   return (
     <div style={styles.container}>
@@ -55,7 +57,6 @@ const styles = {
       "radial-gradient(circle at center, #0B5E2F 0%, #06361b 60%, #021a0d 100%)",
     color: "white",
   },
-
   logoBox: {
     width: "120px",
     height: "120px",
@@ -68,7 +69,6 @@ const styles = {
     boxShadow: "0 20px 40px rgba(0,0,0,0.3)",
     marginBottom: "24px",
   },
-
   logo: {
     fontSize: "64px",
     fontWeight: "800",
@@ -77,14 +77,12 @@ const styles = {
     WebkitBackgroundClip: "text",
     WebkitTextFillColor: "transparent",
   },
-
   title: {
     margin: 0,
     fontSize: "28px",
     fontWeight: "600",
     letterSpacing: "0.02em",
   },
-
   subtitle: {
     marginTop: "10px",
     fontSize: "14px",
