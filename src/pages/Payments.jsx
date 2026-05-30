@@ -12,13 +12,7 @@ export default function Payments() {
 
         <div style={styles.grid}>
           {items.map((item) => (
-            <motion.button
-              key={item}
-              style={styles.card}
-              whileHover={{ scale: 1.05, y: -5 }}
-              whileTap={{ scale: 0.97 }}
-              transition={{ type: "spring", stiffness: 300, damping: 18 }}
-            >
+            <motion.button key={item} style={styles.card} whileHover={{ scale: 1.05, y: -5 }} whileTap={{ scale: 0.97 }}>
               {item}
             </motion.button>
           ))}
@@ -31,25 +25,12 @@ export default function Payments() {
 }
 
 const styles = {
-  page: {
-    minHeight: "100vh",
-    background: "#f5f8f6",
-  },
-
-  main: {
-    padding: "24px 20px 120px",
-    maxWidth: "900px",
-    margin: "0 auto",
-  },
-
-  grid: {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
-    gap: "18px",
-  },
-
+  page: { minHeight: "100vh", background: "var(--bg)" },
+  main: { padding: "24px 20px 120px", maxWidth: "900px", margin: "0 auto" },
+  grid: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "18px" },
   card: {
-    background: "white",
+    background: "var(--card)",
+    color: "var(--text)",
     border: "none",
     borderRadius: "20px",
     padding: "24px",

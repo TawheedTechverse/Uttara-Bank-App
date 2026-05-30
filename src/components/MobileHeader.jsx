@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { House } from "lucide-react";
+import DarkModeToggle from "./DarkModeToggle.jsx";
 
 export default function MobileHeader({ title }) {
   const navigate = useNavigate();
@@ -12,14 +13,13 @@ export default function MobileHeader({ title }) {
         onClick={() => navigate("/dashboard")}
         whileHover={{ scale: 1.06, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        transition={{ type: "spring", stiffness: 300, damping: 18 }}
       >
         <House size={20} color="#ffffff" />
       </motion.button>
 
       <h1 style={styles.title}>{title}</h1>
 
-      <div style={styles.rightSpace} />
+      <DarkModeToggle />
     </div>
   );
 }
@@ -51,14 +51,8 @@ const styles = {
     margin: 0,
     flex: 1,
     textAlign: "center",
-    fontSize: "clamp(24px, 5vw, 40px)",
-    color: "#173321",
+    fontSize: "clamp(22px, 5vw, 38px)",
+    color: "var(--text)",
     fontWeight: "800",
-  },
-
-  rightSpace: {
-    width: "46px",
-    height: "46px",
-    flexShrink: 0,
   },
 };

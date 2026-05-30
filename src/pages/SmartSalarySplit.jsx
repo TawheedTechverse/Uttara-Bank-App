@@ -42,7 +42,7 @@ export default function SmartSalarySplit() {
 }
 
 const styles = {
-  page: { minHeight: "100vh", background: "#f5f8f6" },
+  page: { minHeight: "100vh", background: "var(--bg)"},
   main: { padding: "24px 20px 120px", maxWidth: "980px", margin: "0 auto" },
   headerCard: { background: "linear-gradient(135deg, #0E7A3D, #0B5E2F)", color: "white", borderRadius: "24px", padding: "24px", marginBottom: "24px" },
   label: { margin: 0, opacity: 0.85 },

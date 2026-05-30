@@ -1,8 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import BottomNav from "../components/BottomNav.jsx";
-import MobileHeader from "../components/MobileHeader.jsx";
 import {
   Send,
   Receipt,
@@ -13,17 +11,11 @@ import {
   BadgeDollarSign,
   Sparkles,
 } from "lucide-react";
+import MobileHeader from "../components/MobileHeader.jsx";
+import BottomNav from "../components/BottomNav.jsx";
 
 const ShaplaIcon = () => (
-  <svg
-    width="140"
-    height="140"
-    viewBox="0 0 100 100"
-    fill="none"
-    stroke="white"
-    strokeWidth="2"
-    opacity="0.14"
-  >
+  <svg width="140" height="140" viewBox="0 0 100 100" fill="none" stroke="white" strokeWidth="2" opacity="0.14">
     <path d="M50 10 C60 30, 80 30, 70 50 C80 70, 60 70, 50 90 C40 70, 20 70, 30 50 C20 30, 40 30, 50 10 Z" />
     <path d="M50 22 C56 36, 67 39, 63 50 C67 61, 56 64, 50 78 C44 64, 33 61, 37 50 C33 39, 44 36, 50 22 Z" />
     <circle cx="50" cy="50" r="5" fill="white" opacity="0.18" />
@@ -41,13 +33,13 @@ export default function Dashboard() {
   ];
 
   const actions = [
-  { label: "Transfer Money", path: "/transfer", icon: Send },
-  { label: "Bill Payment", path: "/payments", icon: Receipt },
-  { label: "Mobile Recharge", path: "/payments", icon: Smartphone },
-  { label: "Cards", path: "/cards", icon: CreditCard },
-  { label: "PayID", path: "/transfer", icon: BadgeDollarSign },
-  { label: "Add-on Features", path: "/features", icon: Sparkles },
-];
+    { label: "Transfer Money", path: "/transfer", icon: Send },
+    { label: "Bill Payment", path: "/payments", icon: Receipt },
+    { label: "Mobile Recharge", path: "/payments", icon: Smartphone },
+    { label: "Cards", path: "/cards", icon: CreditCard },
+    { label: "PayID", path: "/transfer", icon: BadgeDollarSign },
+    { label: "Add-on Features", path: "/features", icon: Sparkles },
+  ];
 
   const transactions = [
     { title: "Salary Credit", time: "Today • 9:00 AM", amount: "+ ৳ 42,000" },
@@ -58,37 +50,26 @@ export default function Dashboard() {
 
   return (
     <div style={styles.page}>
-      
-
       <main style={styles.main}>
-        <MobileHeader title= "Dashboard" />
+        <MobileHeader title="Dashboard" />
+
         <div style={styles.topbar}>
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }}>
             <p style={styles.welcome}>Welcome back</p>
             <h1 style={styles.heading}>MD TAWHEED UL ISLAM</h1>
           </motion.div>
 
           <motion.button
             style={styles.logoutBtn}
-            onClick={() => navigate("/")}
+            onClick={() => navigate("/login")}
             whileHover={{ scale: 1.05, y: -3 }}
             whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 300, damping: 18 }}
           >
             Logout
           </motion.button>
         </div>
 
-        <motion.div
-          style={styles.balanceCard}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-        >
+        <motion.div style={styles.balanceCard} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
           <div style={styles.shapla}>
             <ShaplaIcon />
           </div>
@@ -106,24 +87,15 @@ export default function Dashboard() {
             </motion.button>
           </div>
 
-          <h2 style={styles.balanceAmount}>
-            {showBalance ? "৳ 95,220.00" : "৳ •••••••"}
-          </h2>
-
+          <h2 style={styles.balanceAmount}>{showBalance ? "৳ 95,220.00" : "৳ •••••••"}</h2>
           <p style={styles.balanceSub}>All your accounts in one place</p>
         </motion.div>
 
         <section style={styles.section}>
           <h3 style={styles.sectionTitle}>My Accounts</h3>
-
           <div style={styles.cardGrid}>
             {accounts.map((acc) => (
-              <motion.div
-                key={acc.number}
-                style={styles.accountCard}
-                whileHover={{ scale: 1.04, y: -6 }}
-                transition={{ type: "spring", stiffness: 300, damping: 18 }}
-              >
+              <motion.div key={acc.number} style={styles.accountCard} whileHover={{ scale: 1.04, y: -6 }}>
                 <p style={styles.accName}>{acc.name}</p>
                 <h4 style={styles.accBalance}>{acc.balance}</h4>
                 <p style={styles.accNumber}>{acc.number}</p>
@@ -134,11 +106,9 @@ export default function Dashboard() {
 
         <section style={styles.section}>
           <h3 style={styles.sectionTitle}>Quick Actions</h3>
-
           <div style={styles.actionGrid}>
             {actions.map((action) => {
               const Icon = action.icon;
-
               return (
                 <motion.button
                   key={action.label}
@@ -146,7 +116,6 @@ export default function Dashboard() {
                   onClick={() => navigate(action.path)}
                   whileHover={{ scale: 1.06, y: -6 }}
                   whileTap={{ scale: 0.97 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 18 }}
                 >
                   <div style={styles.actionIconBox}>
                     <Icon size={20} color="#0E7A3D" />
@@ -160,15 +129,9 @@ export default function Dashboard() {
 
         <section style={styles.section}>
           <h3 style={styles.sectionTitle}>Recent Transactions</h3>
-
           <div style={styles.transactionList}>
             {transactions.map((tx, i) => (
-              <motion.div
-                key={i}
-                style={styles.transactionItem}
-                whileHover={{ scale: 1.02, y: -3 }}
-                transition={{ type: "spring", stiffness: 300, damping: 18 }}
-              >
+              <motion.div key={i} style={styles.transactionItem} whileHover={{ scale: 1.02, y: -3 }}>
                 <div>
                   <p style={styles.txTitle}>{tx.title}</p>
                   <p style={styles.txTime}>{tx.time}</p>
@@ -179,25 +142,15 @@ export default function Dashboard() {
           </div>
         </section>
       </main>
+
       <BottomNav />
     </div>
   );
 }
 
 const styles = {
-  page: {
-    minHeight: "100vh",
-    display: "flex",
-    background: "#f5f8f6",
-    flexWrap: "wrap",
-  },
-
-  main: {
-    flex: 1,
-    padding: "30px",
-    minWidth: 0,
-    paddingBottom: "120px",
-  },
+  page: { minHeight: "100vh", background: "var(--bg)" },
+  main: { padding: "24px 20px 120px", maxWidth: "980px", margin: "0 auto" },
 
   topbar: {
     display: "flex",
@@ -208,16 +161,12 @@ const styles = {
     flexWrap: "wrap",
   },
 
-  welcome: {
-    margin: 0,
-    color: "#666",
-    fontSize: "14px",
-  },
-
+  welcome: { margin: 0, color: "var(--muted)", fontSize: "14px" },
   heading: {
     margin: "8px 0 0 0",
-    color: "#173321",
-    fontSize: "32px",
+    color: "var(--text)",
+    fontSize: "clamp(28px, 7vw, 42px)",
+    lineHeight: 1.1,
   },
 
   logoutBtn: {
@@ -241,12 +190,7 @@ const styles = {
     boxShadow: "0 18px 40px rgba(0,0,0,0.12)",
   },
 
-  shapla: {
-    position: "absolute",
-    bottom: "-12px",
-    right: "-12px",
-    pointerEvents: "none",
-  },
+  shapla: { position: "absolute", bottom: "-12px", right: "-12px", pointerEvents: "none" },
 
   balanceTopRow: {
     display: "flex",
@@ -256,13 +200,7 @@ const styles = {
     zIndex: 1,
   },
 
-  balanceLabel: {
-    margin: 0,
-    opacity: 0.92,
-    fontSize: "15px",
-    position: "relative",
-    zIndex: 1,
-  },
+  balanceLabel: { margin: 0, opacity: 0.92, fontSize: "15px" },
 
   eyeButton: {
     width: "40px",
@@ -284,22 +222,10 @@ const styles = {
     zIndex: 1,
   },
 
-  balanceSub: {
-    margin: 0,
-    opacity: 0.82,
-    position: "relative",
-    zIndex: 1,
-  },
+  balanceSub: { margin: 0, opacity: 0.82, position: "relative", zIndex: 1 },
 
-  section: {
-    marginTop: "28px",
-  },
-
-  sectionTitle: {
-    marginBottom: "14px",
-    color: "#173321",
-    fontSize: "22px",
-  },
+  section: { marginTop: "28px" },
+  sectionTitle: { marginBottom: "14px", color: "var(--text)", fontSize: "22px" },
 
   cardGrid: {
     display: "grid",
@@ -308,29 +234,16 @@ const styles = {
   },
 
   accountCard: {
-    background: "white",
+    background: "var(--card)",
+    color: "var(--text)",
     borderRadius: "20px",
     padding: "20px",
     boxShadow: "0 10px 25px rgba(0,0,0,0.06)",
   },
 
-  accName: {
-    margin: 0,
-    color: "#666",
-    fontSize: "14px",
-  },
-
-  accBalance: {
-    margin: "10px 0",
-    fontSize: "24px",
-    color: "#173321",
-  },
-
-  accNumber: {
-    margin: 0,
-    color: "#888",
-    fontSize: "14px",
-  },
+  accName: { margin: 0, color: "var(--muted)", fontSize: "14px" },
+  accBalance: { margin: "10px 0", fontSize: "24px", color: "var(--text)" },
+  accNumber: { margin: 0, color: "var(--muted)", fontSize: "14px" },
 
   actionGrid: {
     display: "grid",
@@ -339,7 +252,8 @@ const styles = {
   },
 
   actionCard: {
-    background: "white",
+    background: "var(--card)",
+    color: "var(--text)",
     border: "none",
     borderRadius: "18px",
     padding: "20px",
@@ -348,7 +262,6 @@ const styles = {
     textAlign: "left",
     fontSize: "16px",
     fontWeight: "600",
-    color: "#173321",
     display: "flex",
     flexDirection: "column",
   },
@@ -364,14 +277,11 @@ const styles = {
     marginBottom: "14px",
   },
 
-  transactionList: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "12px",
-  },
+  transactionList: { display: "flex", flexDirection: "column", gap: "12px" },
 
   transactionItem: {
-    background: "white",
+    background: "var(--card)",
+    color: "var(--text)",
     borderRadius: "16px",
     padding: "18px",
     display: "flex",
@@ -380,21 +290,7 @@ const styles = {
     boxShadow: "0 10px 25px rgba(0,0,0,0.05)",
   },
 
-  txTitle: {
-    margin: 0,
-    fontWeight: "600",
-    color: "#173321",
-  },
-
-  txTime: {
-    margin: "6px 0 0 0",
-    color: "#777",
-    fontSize: "14px",
-  },
-
-  txAmount: {
-    margin: 0,
-    fontWeight: "700",
-    color: "#173321",
-  },
+  txTitle: { margin: 0, fontWeight: "600", color: "var(--text)" },
+  txTime: { margin: "6px 0 0 0", color: "var(--muted)", fontSize: "14px" },
+  txAmount: { margin: 0, fontWeight: "700", color: "var(--text)" },
 };

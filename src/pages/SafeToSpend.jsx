@@ -34,7 +34,7 @@ export default function SafeToSpend() {
 }
 
 const styles = {
-  page: { minHeight: "100vh", background: "#f5f8f6" },
+  page: { minHeight: "100vh", background: "var(--bg)" },
   main: { padding: "24px 20px 120px", maxWidth: "900px", margin: "0 auto" },
   card: { background: "white", borderRadius: "24px", padding: "24px", boxShadow: "0 10px 25px rgba(0,0,0,0.06)" },
   date: { marginTop: 0, color: "#666" },

@@ -60,7 +60,7 @@ export default function SubscriptionDetector() {
 }
 
 const styles = {
-  page: { minHeight: "100vh", background: "#f5f8f6" },
+  page: { minHeight: "100vh", background: "var(--bg)" },
   main: { padding: "24px 20px 120px", maxWidth: "900px", margin: "0 auto" },
   chartCard: { background: "white", borderRadius: "24px", padding: "24px", boxShadow: "0 10px 25px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", alignItems: "center", gap: "20px", marginBottom: "20px" },
   pie: {

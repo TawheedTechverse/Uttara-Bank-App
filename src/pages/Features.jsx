@@ -51,9 +51,7 @@ export default function Features() {
 
   useEffect(() => {
     const saved = localStorage.getItem("uttara_addon_features");
-    if (saved) {
-      setEnabledFeatures(JSON.parse(saved));
-    }
+    if (saved) setEnabledFeatures(JSON.parse(saved));
   }, []);
 
   useEffect(() => {
@@ -81,7 +79,7 @@ export default function Features() {
           <p style={styles.summaryLabel}>Activated Features</p>
           <h2 style={styles.summaryValue}>{activeCount} / 5</h2>
           <p style={styles.summaryText}>
-            Enable a feature with the switch, then open its demo page to see how it works.
+            Enable a feature with the switch, then open its demo page.
           </p>
         </div>
 
@@ -93,20 +91,13 @@ export default function Features() {
               const enabled = enabledFeatures[feature.key];
 
               return (
-                <motion.div
-                  key={feature.key}
-                  style={styles.featureCard}
-                  whileHover={{ scale: 1.01, y: -3 }}
-                >
+                <motion.div key={feature.key} style={styles.featureCard} whileHover={{ scale: 1.01, y: -3 }}>
                   <div style={styles.featureText}>
                     <h4 style={styles.featureTitle}>{feature.title}</h4>
                     <p style={styles.featureDescription}>{feature.description}</p>
 
                     <motion.button
-                      style={{
-                        ...styles.demoButton,
-                        ...(enabled ? styles.demoButtonEnabled : styles.demoButtonDisabled),
-                      }}
+                      style={styles.demoButton}
                       onClick={() => navigate(feature.path)}
                       whileHover={{ scale: 1.04 }}
                       whileTap={{ scale: 0.97 }}
@@ -142,8 +133,9 @@ export default function Features() {
 }
 
 const styles = {
-  page: { minHeight: "100vh", background: "#f5f8f6" },
+  page: { minHeight: "100vh", background: "var(--bg)" },
   main: { padding: "24px 20px 120px", maxWidth: "980px", margin: "0 auto" },
+
   summaryCard: {
     background: "linear-gradient(135deg, #0E7A3D, #0B5E2F)",
     color: "white",
@@ -152,14 +144,19 @@ const styles = {
     boxShadow: "0 18px 40px rgba(0,0,0,0.12)",
     marginBottom: "24px",
   },
+
   summaryLabel: { margin: 0, opacity: 0.85, fontSize: "14px" },
   summaryValue: { margin: "10px 0", fontSize: "36px" },
   summaryText: { margin: 0, opacity: 0.82, lineHeight: 1.5 },
+
   section: { marginTop: "26px" },
-  sectionTitle: { marginBottom: "14px", color: "#173321", fontSize: "22px" },
+  sectionTitle: { marginBottom: "14px", color: "var(--text)", fontSize: "22px" },
+
   featureList: { display: "flex", flexDirection: "column", gap: "14px" },
+
   featureCard: {
-    background: "white",
+    background: "var(--card)",
+    color: "var(--text)",
     borderRadius: "20px",
     padding: "20px",
     boxShadow: "0 10px 25px rgba(0,0,0,0.06)",
@@ -168,9 +165,11 @@ const styles = {
     alignItems: "center",
     gap: "20px",
   },
+
   featureText: { flex: 1 },
-  featureTitle: { margin: "0 0 8px 0", color: "#173321", fontSize: "18px" },
-  featureDescription: { margin: 0, color: "#666", lineHeight: 1.5, fontSize: "14px" },
+  featureTitle: { margin: "0 0 8px 0", color: "var(--text)", fontSize: "18px" },
+  featureDescription: { margin: 0, color: "var(--muted)", lineHeight: 1.5, fontSize: "14px" },
+
   demoButton: {
     marginTop: "14px",
     border: "none",
@@ -179,15 +178,10 @@ const styles = {
     fontSize: "14px",
     fontWeight: "600",
     cursor: "pointer",
-  },
-  demoButtonEnabled: {
     background: "linear-gradient(135deg, #17a34a, #0E7A3D)",
     color: "white",
   },
-  demoButtonDisabled: {
-    background: "#e9f6ed",
-    color: "#0E7A3D",
-  },
+
   switch: {
     width: "66px",
     height: "36px",
@@ -198,8 +192,10 @@ const styles = {
     transition: "0.3s ease",
     flexShrink: 0,
   },
+
   switchOn: { background: "linear-gradient(135deg, #17a34a, #0E7A3D)" },
   switchOff: { background: "#d9d9d9" },
+
   switchKnob: {
     width: "28px",
     height: "28px",
@@ -211,5 +207,6 @@ const styles = {
     transition: "0.3s ease",
     boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
   },
+
   switchKnobOn: { left: "34px" },
 };

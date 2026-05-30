@@ -13,5 +13,22 @@ body,
 }
 
 body {
-  background: #f5f8f6;
+  background: var(--bg);
+  color: var(--text);
+}
+
+:root {
+  --bg: #f5f8f6;
+  --card: #ffffff;
+  --text: #173321;
+  --muted: #666666;
+  --border: #eeeeee;
+}
+
+body.dark {
+  --bg: #07130d;
+  --card: #101f16;
+  --text: #ffffff;
+  --muted: #b7c8bd;
+  --border: #1e3a2a;
 }
